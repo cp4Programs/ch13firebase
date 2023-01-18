@@ -10,13 +10,13 @@ function Header() {
 
     return (
         <div className="header-container">
-            <Link><FaHome className="home-icon" /></Link>
+            <Link to="/"><FaHome className="home-icon" /></Link>
             {
                 categories.map(item => {
                     return <Link className="nav-link" to={`/category/${item}`}>{item}</Link>
                 })
             }
-            <Link className="auth-link" to={`/auth`}>Signup</Link>
+            <Link className="auth-link" to={`/signup`}>Signup</Link>
         </div>
 
     )

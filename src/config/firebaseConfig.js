@@ -17,6 +17,16 @@ const firebaseConfig = {
     measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 }
 
+// const firebaseConfig = {
+//     apiKey: "AIzaSyCOdWNwHEltq8BPc4SPeIEC0_UyKLsFwhs",
+//     authDomain: "cp4firstfullstack.firebaseapp.com",
+//     projectId: "cp4firstfullstack",
+//     storageBucket: "cp4firstfullstack.appspot.com",
+//     messagingSenderId: "331898807167",
+//     appId: "1:331898807167:web:cc5d2c329315f2c35e304a",
+//     measurementId: "G-NHMME4JBML",
+// }
+
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 

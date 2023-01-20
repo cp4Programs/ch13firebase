@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { db } from '../../config/firebaseConfig'
-import { getDocs, collection, query, limit } from 'firebase/firestore'
+import { getDocs, collection, query, limit, orderBy } from 'firebase/firestore'
 import './banner.css'
 
 function Banner() {
@@ -10,7 +10,7 @@ function Banner() {
 
     useEffect(() => {
         const articleRef = collection(db, "articles")
-        const q = query(articleRef, limit(5))
+        const q = query(articleRef, orderBy("createdAt"), limit(5))
 
         getDocs(q, articleRef)
             .then(res => {
@@ -37,8 +37,8 @@ function Banner() {
             </div>
             <div className="other-articles-container">
                 {
-                    otherArticles?.map(item => {
-                        return <div className="other-article-item" style={{ backgroundImage: `url(${item?.image})` }} >
+                    otherArticles && otherArticles?.map(item => {
+                        return <div key={item?.idKey} className="other-article-item" style={{ backgroundImage: `url(${item?.image})` }} >
                             <div className="banner-info">
                                 <h3>{item?.title.slice(0, 15)}...</h3>
                                 <small>{item?.createdAt?.toDate().toDateString()}</small>
@@ -52,3 +52,4 @@ function Banner() {
 }
 
 export default Banner
+

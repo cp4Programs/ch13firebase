@@ -21,7 +21,6 @@ function Banner() {
                 }))
                 setMainArticle(articles[0])
                 setOtherArticles(articles.splice(1))
-                console.log(otherArticles)
             })
             .catch(err => console.log(err))
 
@@ -31,17 +30,24 @@ function Banner() {
     return (
         <div className="banner-container">
             <div className="main-article-container" style={{ backgroundImage: `url(${mainArticle?.image})` }}>
-
+                <div className="banner-info">
+                    <h2>{mainArticle?.title}...</h2>
+                    <small>{mainArticle?.createdAt?.toDate().toDateString()}</small>
+                </div>
             </div>
             <div className="other-articles-container">
                 {
                     otherArticles?.map(item => {
-                        return <div style={{ backgroundImage: `url(${item?.image})` }} >
+                        return <div className="other-article-item" style={{ backgroundImage: `url(${item?.image})` }} >
+                            <div className="banner-info">
+                                <h3>{item?.title.slice(0, 15)}...</h3>
+                                <small>{item?.createdAt?.toDate().toDateString()}</small>
+                            </div>
                         </div>
                     })
                 }
             </div>
-        </div>
+        </div >
     )
 }
 

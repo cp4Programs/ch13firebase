@@ -14,7 +14,6 @@ function Banner() {
 
         getDocs(q, articleRef)
             .then(res => {
-                console.log(res.docs)
                 const articles = res.docs.map(item => ({
                     idKey: item.id,
                     ...item.data()

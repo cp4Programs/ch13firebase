@@ -15,7 +15,7 @@ function Header() {
                     return <Link key={item} className="nav-link" to={`/category/${item}`}>{item}</Link>
                 })
             }
-            <Link className="auth-link" to={`/signup`}>Signup</Link>
+            <Link className="auth-link" to={`/signup`}>Log In</Link>
         </div>
 
     )

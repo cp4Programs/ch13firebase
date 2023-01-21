@@ -10,11 +10,11 @@ function Banner() {
 
     useEffect(() => {
         const articleRef = collection(db, "articles")
-        const q = query(articleRef, orderBy("createdAt"), limit(5))
+        const q = query(articleRef, orderBy("createdAt", "desc"), limit(5))
 
         getDocs(q, articleRef)
             .then(res => {
-
+                console.log(res.docs)
                 const articles = res.docs.map(item => ({
                     idKey: item.id,
                     ...item.data()

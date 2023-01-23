@@ -41,16 +41,18 @@ function SignUp() {
                     ?
                     <form className="auth-form" onSubmit={handleLogin}>
                         <div className="form-group">
-                            <h1>Login with your email</h1>
+                            <h1>Log in with your email</h1>
                             <input
                                 onChange={(e) => setEmail(e.target.value)}
                                 type="email"
+                                value={email || ""}
                                 placeholder="Enter your email"
                                 required
                             />
                             <input
                                 onChange={(e) => setPassword(e.target.value)}
                                 type="password"
+                                value={password || ""}
                                 placeholder="Enter you password"
                                 required
                             />
@@ -67,16 +69,19 @@ function SignUp() {
                             <h1>Sign Up</h1>
                             <input
                                 onChange={(e) => setName(e.target.value)}
+                                value={name || ""}
                                 type="User Name"
                                 placeholder="Create your user name"
                                 required />
                             <input
                                 onChange={(e) => setEmail(e.target.value)}
+                                value={email || ""}
                                 type="email"
                                 placeholder="Input your email"
                                 required />
                             <input
                                 onChange={(e) => setPassword(e.target.value)}
+                                value={password || ""}
                                 type="password"
                                 placeholder="Create your password"
                                 required />

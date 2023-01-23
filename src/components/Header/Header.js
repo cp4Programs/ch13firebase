@@ -6,13 +6,20 @@ import { auth } from '../../config/firebaseConfig';
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { signOut } from 'firebase/auth';
 
-function Header() {
-    const categories = ["Health", "Food", "Travel", "Technology"];
+function Header({ categories }) {
+
     const [user] = useAuthState(auth)
 
     return (
         <div className="header-container">
+
             <Link to="/"><FaHome className="home-icon" /></Link>
+            {
+                user
+                    ? <Link className="auth-link" to="/addarticle">Add Article</Link>
+                    : null
+            }
+
             <div className="categories-container">
                 {
                     categories.map(item => {
@@ -28,7 +35,7 @@ function Header() {
                         <button className="auth-link" onClick={() => signOut(auth)}>Log Out</button>
                     </div>
                     :
-                    <Link className="auth-link" to={`/signup`}>Sign Up</Link>
+                    <Link className="auth-link" to={`/signup`}>Log In</Link>
             }
 
 

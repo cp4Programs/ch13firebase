@@ -6,11 +6,13 @@ import { addDoc, collection, Timestamp } from 'firebase/firestore'
 import { v4 } from 'uuid'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { toast } from 'react-toastify'
+import { useNavigate } from 'react-router-dom'
 
 
 function AddArticle({ categories }) {
     //categories coming from App.js//
     const [user] = useAuthState(auth)
+    let navigate = useNavigate()
 
     const [formData, setFormData] = useState({
         title: "",
@@ -43,7 +45,10 @@ function AddArticle({ categories }) {
                             createdBy: user?.displayName
                         })
                             .then(res => {
-                                toast('article added successfully', { type: "success" })
+                                toast('article added successfully', { type: "success", autoClose: 1750 })
+                                setTimeout(() => {
+                                    navigate('/')
+                                }, 2000)
                             })
                     })
             })

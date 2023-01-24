@@ -7,7 +7,7 @@ import SignUp from './pages/signup/SignUp';
 import AddArticle from './pages/addartticle/AddArticle';
 
 function App() {
-  const categories = ["Health", "Food", "Travel", "Technology"];
+  const categories = ["Health", "Food", "Travel", "Technology", "Other"];
 
   return (
 

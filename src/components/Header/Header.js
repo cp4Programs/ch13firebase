@@ -7,7 +7,7 @@ import { useAuthState } from 'react-firebase-hooks/auth'
 import { signOut } from 'firebase/auth';
 
 function Header({ categories }) {
-
+    //categories coming from App.js//
     const [user] = useAuthState(auth)
 
     return (
